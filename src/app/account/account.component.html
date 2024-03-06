@@ -1,0 +1,86 @@
+<div class="container">
+    <form action="" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <h1 class="mt-3 mb-5 text-center">Thêm Tài Khoản</h1>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="firstname">First name</label>
+                    <input type="text" #refname placeholder="First name..." class="form-control" formControlName="firstname">
+                    <div *ngIf="userForm.controls['firstname'].hasError('required')" class="alert alert-danger">
+                        firstname bắt buộc phải nhập
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">lastname</label>
+                    <input type="text" placeholder="lastname..." class="form-control" formControlName="lastname">
+                    <div *ngIf="userForm.controls['lastname'].hasError('required')" class="alert alert-danger">
+                        lastname bắt buộc phải nhập
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">age</label>
+                    <input type="text" placeholder="age..." class="form-control" formControlName="age">
+                    <div *ngIf="userForm.controls['age'].hasError('required')" class="alert alert-danger">
+                        age bắt buộc phải nhập
+                    </div>
+                    <div *ngIf="userForm.controls['age'].hasError('pattern')" class="alert alert-danger">
+                        age bắt buộc phải là kiểu số
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="text" placeholder="email..." class="form-control" formControlName="email">
+                    <div *ngIf="userForm.controls['email'].hasError('required')" class="alert alert-danger">
+                        email bắt buộc phải nhập
+                    </div>
+                    <div *ngIf="userForm.controls['email'].hasError('email')" class="alert alert-danger">
+                        email không đúng định dạng
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="work">work</label>
+                    <input type="text" placeholder="work..." class="form-control" formControlName="work">
+                    <div *ngIf="userForm.controls['work'].hasError('required')" class="alert alert-danger">
+                        work bắt buộc phải nhập
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthday">birthday</label>
+                    <input type="date" placeholder="birthday..." class="form-control" formControlName="birthday">
+                    <div *ngIf="userForm.controls['birthday'].hasError('required')" class="alert alert-danger">
+                        birthday bắt buộc phải nhập
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="text" placeholder="username..." class="form-control" formControlName="username">
+                    <div *ngIf="userForm.controls['username'].hasError('required')" class="alert alert-danger">
+                        username bắt buộc phải nhập
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">gender</label>
+                    <select class="form-control" formControlName="gender">
+                        <option value="">Select Your gender</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                    <div *ngIf="userForm.controls['gender'].hasError('required')" class="alert alert-danger">
+                        gender bắt buộc phải chon
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" [disabled]="!userForm.valid">Đồng ý</button>
+    </form>
+</div>
